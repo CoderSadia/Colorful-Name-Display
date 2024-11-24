@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Name Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Colorful Name Display</h1>
+  
+  <!-- Input fields -->
+  <input type="text" id="nameInput" placeholder="Enter your name" /><br />
+  <input type="text" id="colorInput" placeholder="Enter a color (e.g., red)" /><br />
+  <button onclick="updateDisplay()">Display Name</button>
+  
+  <!-- Output area -->
+  <div class="output" id="outputArea">Your name will appear here</div>
+  
+  <!-- JavaScript -->
+  <script>
+    function updateDisplay() {
+      // Get the input values
+      const name = document.getElementById('nameInput').value.trim();
+      const color = document.getElementById('colorInput').value.trim().toLowerCase();
+
+      // Get the output area
+      const outputArea = document.getElementById('outputArea');
+
+      // Validate and update the display
+      if (name === '') {
+        outputArea.textContent = 'Please enter your name!';
+        outputArea.style.color = 'black';
+        return;
+      }
+
+      // Apply the color
+      outputArea.textContent = name;
+      outputArea.style.color = color || 'black'; // Default to black if no color is entered
+    }
+  </script>
+</body>
+</html>
